@@ -92,7 +92,7 @@
         <label for="how-other">Other</label>
       </div>
       <div class="form-control">
-        <raiting-control></raiting-control>
+        <rating-control v-model="rating"></rating-control>
       </div>
     </div>
     <div>
@@ -111,11 +111,11 @@
 </template>
 
 <script>
-import RaitingControl from './RaitingControl.vue';
+import ratingControl from './RatingControl.vue';
 
 export default {
   components: {
-    RaitingControl,
+    ratingControl,
   },
   data() {
     return {
@@ -126,6 +126,7 @@ export default {
       how: null,
       confirm: false,
       userNameValidity: 'pending',
+      rating: null,
     };
   },
   methods: {
@@ -145,6 +146,9 @@ export default {
       this.interest = [];
       this.how = null;
       console.log(this.confirm);
+      console.log('rating');
+      console.log(this.rating);
+      this.rating = null;
     },
     validateInput() {
       if (this.userName === '') {
